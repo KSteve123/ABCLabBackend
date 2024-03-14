@@ -1,6 +1,7 @@
 package com.ABCLaboratories.TestRegistrationSystem.model;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.NaturalId;
 import org.springframework.boot.autoconfigure.web.WebProperties;
 
 @Entity
@@ -14,6 +15,7 @@ public class Patient {
     private String Name;
     @Column(name = "p_phone")
     private String Phone;
+    @NaturalId(mutable = true)
     @Column(name = "p_email")
     private String Email;
     @Column(name = "p_address")

@@ -37,4 +37,9 @@ public class Staff {
     public void setPassword(String password) {
         Password = password;
     }
+
+    public Staff(){
+
+
+    }
 }

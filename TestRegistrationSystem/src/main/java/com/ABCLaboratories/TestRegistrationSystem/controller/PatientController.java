@@ -23,6 +23,18 @@ public class PatientController {
         patientService.SavePatient(patient);
         return "New patient added";
     }
+    @PutMapping("/update/{id}")
+    public Patient updateStudent(@RequestBody Patient patient, @PathVariable int id){
+        return patientService.updatePatient(patient, id);
+    }
+    @DeleteMapping("/delete/{id}")
+    public void deletePatient(@PathVariable int id){
+        patientService.deletePatient(id);
+    }
+    @GetMapping("/patient/{id}")
+    public Patient getPatientById(@PathVariable int id){
+        return patientService.getPatientById(id);
+    }
 
 
 
