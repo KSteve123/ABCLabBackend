@@ -8,8 +8,8 @@ public class Appointment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
-    @Column(name = "a_email")
-    private String PatientEmail;
+    @Column(name = "a_pid")
+    private String PatientId;
     @Column(name = "a_doctor")
     private String DoctorName;
     @Column(name = "a_test")
@@ -17,7 +17,17 @@ public class Appointment {
     @Column(name = "a_technician")
     private String TechnicianName;
     @Column(name = "a_payment")
-    private Float Payment;
+    private String Payment;
+    @Column(name = "date")
+    private String Date;
+
+    public String getDate() {
+        return Date;
+    }
+
+    public void setDate(String date) {
+        Date = date;
+    }
 
     public int getId() {
         return id;
@@ -27,12 +37,12 @@ public class Appointment {
         this.id = id;
     }
 
-    public String getPatientEmail() {
-        return PatientEmail;
+    public String getPatientId() {
+        return PatientId;
     }
 
-    public void setPatientEmail(String patientEmail) {
-        PatientEmail = patientEmail;
+    public void setPatientId(String patientId) {
+        PatientId = patientId;
     }
 
     public String getDoctorName() {
@@ -59,11 +69,11 @@ public class Appointment {
         TechnicianName = technicianName;
     }
 
-    public Float getPayment() {
+    public String getPayment() {
         return Payment;
     }
 
-    public void setPayment(Float payment) {
+    public void setPayment(String payment) {
         Payment = payment;
     }
 }

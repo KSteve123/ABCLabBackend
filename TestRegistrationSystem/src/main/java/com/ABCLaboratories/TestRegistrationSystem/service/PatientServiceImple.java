@@ -40,6 +40,7 @@ public class PatientServiceImple implements PatientService {
                 .orElseThrow(() -> new PatientNotFoundException("Sorry, no student found with the Id :" +id));
     }
 
+
     @Override
     public void deletePatient(int id) {
         if (!patientRepository.existsById(id)){

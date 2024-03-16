@@ -1,6 +1,7 @@
 package com.ABCLaboratories.TestRegistrationSystem.controller;
 
 import com.ABCLaboratories.TestRegistrationSystem.model.LoginProcess;
+import com.ABCLaboratories.TestRegistrationSystem.model.LoginSession;
 import com.ABCLaboratories.TestRegistrationSystem.model.LoginUser;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +17,7 @@ public static String ConfirmedEmail;
         LoginProcess login = new LoginProcess();
         if (login.ifLogged(loginu.getEmail().toString(), loginu.getPassword().toString())) {
 
-            ConfirmedEmail = loginu.getEmail().toString();
+            ConfirmedEmail = String.valueOf(LoginSession.Id);
             return ConfirmedEmail;
         }else {
             ConfirmedEmail="Incorrect Credential";

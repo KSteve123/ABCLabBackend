@@ -10,7 +10,7 @@ public class LoginProcess {
         try{
             Connection con = DbConnection.getConnection();
             String mySqlQuery =
-                    "SELECT p_email, p_password FROM tbl_patient WHERE p_email = '"+
+                    "SELECT p_email, p_password, id FROM tbl_patient WHERE p_email = '"+
                             email+
                             "' AND p_password = '"+
                             password+
@@ -21,6 +21,7 @@ public class LoginProcess {
             while(resultSet.next()){
                 LoginSession.Email = resultSet.getString("p_email");
                 LoginSession.Password = resultSet.getString("p_password");
+                LoginSession.Id = resultSet.getInt("id");
 
 
                 return true;
