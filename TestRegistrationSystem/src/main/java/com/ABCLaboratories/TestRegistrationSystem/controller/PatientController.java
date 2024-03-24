@@ -24,7 +24,7 @@ public class PatientController {
         return "New patient added";
     }
     @PutMapping("/update/{id}")
-    public Patient updateStudent(@RequestBody Patient patient, @PathVariable int id){
+    public Patient updatePatient(@RequestBody Patient patient, @PathVariable int id){
         return patientService.updatePatient(patient, id);
     }
     @DeleteMapping("/delete/{id}")

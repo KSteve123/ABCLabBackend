@@ -28,7 +28,7 @@ public class AppointmentServiceImp implements AppointmentService{
     @Override
     public Appointment getAppointmentById(int id) {
         return appointmentRepository.findById(id)
-                .orElseThrow(() -> new PatientNotFoundException("Sorry, no student found with the Id :" +id));
+                .orElseThrow(() -> new PatientNotFoundException("Sorry, no appointment found with the Id :" +id));
     }
 
     @Override
@@ -46,7 +46,7 @@ public class AppointmentServiceImp implements AppointmentService{
             pt.setTestName(appointment.getTestName());
 
             return appointmentRepository.save(pt);
-        }).orElseThrow(() -> new PatientNotFoundException("Sorry, this student could not be found"));
+        }).orElseThrow(() -> new PatientNotFoundException("Sorry, this appointment could not be found"));
     }
 
     @Override
@@ -54,13 +54,13 @@ public class AppointmentServiceImp implements AppointmentService{
         return appointmentRepository.findById(id).map(pt -> {
             pt.setReport(appointment.getReport());
             return appointmentRepository.save(pt);
-        }).orElseThrow(() -> new PatientNotFoundException("Sorry, this student could not be found"));
+        }).orElseThrow(() -> new PatientNotFoundException("Sorry, this appointment could not be found"));
     }
 
     @Override
     public void deleteAppointment(int id) {
         if (!appointmentRepository.existsById(id)){
-            throw new PatientNotFoundException("Sorry, student not found");
+            throw new PatientNotFoundException("Sorry, appointment not found");
         }
         appointmentRepository.deleteById(id);
     }

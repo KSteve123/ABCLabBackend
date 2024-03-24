@@ -31,20 +31,20 @@ public class PatientServiceImple implements PatientService {
             pt.setAddress(patient.getAddress());
             pt.setPhone(patient.getPhone());
             return patientRepository.save(pt);
-        }).orElseThrow(() -> new PatientNotFoundException("Sorry, this student could not be found"));
+        }).orElseThrow(() -> new PatientNotFoundException("Sorry, this patient could not be found"));
     }
 
     @Override
     public Patient getPatientById(int id) {
         return patientRepository.findById(id)
-                .orElseThrow(() -> new PatientNotFoundException("Sorry, no student found with the Id :" +id));
+                .orElseThrow(() -> new PatientNotFoundException("Sorry, no patient found with the Id :" +id));
     }
 
 
     @Override
     public void deletePatient(int id) {
         if (!patientRepository.existsById(id)){
-            throw new PatientNotFoundException("Sorry, student not found");
+            throw new PatientNotFoundException("Sorry, patient not found");
         }
         patientRepository.deleteById(id);
     }

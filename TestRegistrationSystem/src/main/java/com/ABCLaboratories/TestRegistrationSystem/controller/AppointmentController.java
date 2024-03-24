@@ -26,7 +26,7 @@ public class AppointmentController {
     @PostMapping("/add")
     public String add(@RequestBody Appointment appointment){
         appointmentService.SaveAppointment(appointment);
-        return "New patient added";
+        return "New Appointment added";
     }
 
     @GetMapping("/appointment/{id}")

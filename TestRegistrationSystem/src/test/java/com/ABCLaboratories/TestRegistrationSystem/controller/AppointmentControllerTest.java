@@ -211,7 +211,7 @@ class AppointmentControllerTest {
         .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().isOk())
         .andExpect(MockMvcResultMatchers.content().contentType("text/plain;charset=ISO-8859-1"))
-        .andExpect(MockMvcResultMatchers.content().string("New patient added"));
+        .andExpect(MockMvcResultMatchers.content().string("New Appointment added"));
   }
 
   /**
