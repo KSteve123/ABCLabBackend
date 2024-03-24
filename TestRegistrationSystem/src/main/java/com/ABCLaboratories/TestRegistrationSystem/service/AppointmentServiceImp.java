@@ -50,6 +50,14 @@ public class AppointmentServiceImp implements AppointmentService{
     }
 
     @Override
+    public Appointment updateReport(Appointment appointment, int id) {
+        return appointmentRepository.findById(id).map(pt -> {
+            pt.setReport(appointment.getReport());
+            return appointmentRepository.save(pt);
+        }).orElseThrow(() -> new PatientNotFoundException("Sorry, this student could not be found"));
+    }
+
+    @Override
     public void deleteAppointment(int id) {
         if (!appointmentRepository.existsById(id)){
             throw new PatientNotFoundException("Sorry, student not found");

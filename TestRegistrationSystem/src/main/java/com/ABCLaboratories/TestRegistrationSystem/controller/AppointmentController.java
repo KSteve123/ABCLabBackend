@@ -58,6 +58,10 @@ public class AppointmentController {
 
     }
 
+    @PutMapping("/update/report/{id}")
+    public Appointment updateReport(@RequestBody Appointment appointment, @PathVariable int id){
+        return appointmentService.updateReport(appointment, id);
+    }
 
 
 

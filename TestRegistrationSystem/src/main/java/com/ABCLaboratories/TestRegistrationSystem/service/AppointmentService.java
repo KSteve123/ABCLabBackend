@@ -18,6 +18,8 @@ public interface AppointmentService {
 
     Appointment updateAppointment(Appointment appointment, int id);
 
+    Appointment updateReport(Appointment appointment, int id);
+
     void deleteAppointment(int id);
 
 }

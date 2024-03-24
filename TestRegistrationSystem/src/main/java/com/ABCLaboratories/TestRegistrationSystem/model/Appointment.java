@@ -20,6 +20,8 @@ public class Appointment {
     private String Payment;
     @Column(name = "date")
     private String Date;
+    @Column(name = "report")
+    private String Report;
 
     public String getDate() {
         return Date;
@@ -71,6 +73,14 @@ public class Appointment {
 
     public String getTechnicianID() {
         return TechnicianID;
+    }
+
+    public String getReport() {
+        return Report;
+    }
+
+    public void setReport(String report) {
+        Report = report;
     }
 
     public void setTechnicianID(String technicianID) {
