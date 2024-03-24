@@ -20,7 +20,7 @@ public class TestController {
     @PostMapping("/addTest")
     public String add(@RequestBody Test test){
         testService.SaveTest(test);
-        return "New patient added";
+        return "New test added";
     }
 
 

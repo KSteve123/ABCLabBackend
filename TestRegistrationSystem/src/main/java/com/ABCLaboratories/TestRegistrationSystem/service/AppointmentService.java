@@ -14,4 +14,10 @@ public interface AppointmentService {
 
     public List<Appointment> fetchAppointment(String id);
 
+    public List<Appointment> getAllAppointments();
+
+    Appointment updateAppointment(Appointment appointment, int id);
+
+    void deleteAppointment(int id);
+
 }

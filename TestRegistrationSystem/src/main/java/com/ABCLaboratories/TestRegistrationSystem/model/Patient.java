@@ -4,6 +4,10 @@ import jakarta.persistence.*;
 import org.hibernate.annotations.NaturalId;
 import org.springframework.boot.autoconfigure.web.WebProperties;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
 @Entity
 @Table(name="tbl_patient")
 public class Patient {
@@ -35,6 +39,15 @@ public class Patient {
         this.Email=email;
         this.Password=password;
 
+    }
+
+    public Patient(int id, String name, String phone, String email, String address, String password) {
+        this.id =id;
+        Name = name;
+        Phone = phone;
+        Email = email;
+        Address = address;
+        Password = password;
     }
 
     public int getId() {
@@ -83,5 +96,34 @@ public class Patient {
 
 
     }
+    public Patient(int id){
+        this.id = id;
+    }
+
+    public void EmailLoad(){
+        try{
+            Connection con = DbConnection.getConnection();
+
+
+            String mySqlQuery2 =
+                    "SELECT * FROM tbl_patient WHERE id ='"+this.getId()+"' ";
+
+            PreparedStatement Stmt2 = con.prepareStatement(mySqlQuery2);
+            Stmt2.executeQuery();
+            ResultSet r1 = Stmt2.executeQuery();
+            while(r1.next()){
+                this.setEmail(r1.getString("p_email").toString());
+
+
+            }
+
+
+        }
+        catch (Exception exception){
+            System.out.print("Error" + exception.getMessage());// to identify any backend error
+        }
+
+    }
+
 
 }

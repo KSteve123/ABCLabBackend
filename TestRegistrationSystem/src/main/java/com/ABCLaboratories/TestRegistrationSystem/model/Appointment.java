@@ -15,7 +15,7 @@ public class Appointment {
     @Column(name = "a_test")
     private String TestName;
     @Column(name = "a_technician")
-    private String TechnicianName;
+    private String TechnicianID;
     @Column(name = "a_payment")
     private String Payment;
     @Column(name = "date")
@@ -61,19 +61,19 @@ public class Appointment {
         TestName = testName;
     }
 
-    public String getTechnicianName() {
-        return TechnicianName;
-    }
-
-    public void setTechnicianName(String technicianName) {
-        TechnicianName = technicianName;
-    }
-
     public String getPayment() {
         return Payment;
     }
 
     public void setPayment(String payment) {
         Payment = payment;
+    }
+
+    public String getTechnicianID() {
+        return TechnicianID;
+    }
+
+    public void setTechnicianID(String technicianID) {
+        TechnicianID = technicianID;
     }
 }

@@ -31,6 +31,34 @@ public class AppointmentServiceImp implements AppointmentService{
                 .orElseThrow(() -> new PatientNotFoundException("Sorry, no student found with the Id :" +id));
     }
 
+    @Override
+    public List<Appointment> getAllAppointments(){
+        return appointmentRepository.findAll();
+
+    }
+
+    @Override
+    public Appointment updateAppointment(Appointment appointment, int id) {
+        return appointmentRepository.findById(id).map(pt -> {
+            pt.setTechnicianID(appointment.getTechnicianID());
+            pt.setPayment(appointment.getPayment());
+            pt.setPatientId(appointment.getPatientId());
+            pt.setTestName(appointment.getTestName());
+
+            return appointmentRepository.save(pt);
+        }).orElseThrow(() -> new PatientNotFoundException("Sorry, this student could not be found"));
+    }
+
+    @Override
+    public void deleteAppointment(int id) {
+        if (!appointmentRepository.existsById(id)){
+            throw new PatientNotFoundException("Sorry, student not found");
+        }
+        appointmentRepository.deleteById(id);
+    }
+
+
+
 
 
 

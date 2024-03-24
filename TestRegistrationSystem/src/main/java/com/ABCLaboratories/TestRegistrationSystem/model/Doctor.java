@@ -11,7 +11,7 @@ public class Doctor {
     @Column(name = "id")
     private int id;
     @Column(name = "d_name")
-    private String NAme;
+    private String Name;
 
     public int getId() {
         return id;
@@ -21,11 +21,13 @@ public class Doctor {
         this.id = id;
     }
 
-    public String getNAme() {
-        return NAme;
+    public String getName() {
+        return Name;
     }
 
-    public void setNAme(String NAme) {
-        this.NAme = NAme;
+    public void setNAme(String Name) {
+        this.Name = Name;
     }
+
+    public Doctor(){}
 }

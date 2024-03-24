@@ -13,4 +13,6 @@ public interface PatientService {
 
     void deletePatient(int id);
 
+
+
 }

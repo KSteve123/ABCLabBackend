@@ -26,4 +26,6 @@ public class Technician {
     public void setName(String name) {
         Name = name;
     }
+
+    public Technician(){}
 }
